@@ -16,7 +16,7 @@ def run_custom_code():
     .stApp{    
         background-size: 100% 100%;
         background-repeat: no-repeat;
-        background-image: url("assets\brand\flex_bg.png"); 
+        background-image: url("flex_bg.png"); 
     }
     </style>
     """, unsafe_allow_html=True)
@@ -72,7 +72,7 @@ def get_home_content():
 
         with logo:
             ''
-            logoimage = Image.open(r'assets\brand\flex.png')
+            logoimage = Image.open(r'flex.png')
             st.image(logoimage)
         
         with menu:
