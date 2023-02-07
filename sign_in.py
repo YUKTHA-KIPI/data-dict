@@ -49,7 +49,7 @@ def run_custom_code():
         height: 45px;
         background-color: #EEEEEE;
         color: #000000;
-        placeholder: "snowflake user name";
+        placeholder: "someone@kipi.com";
         border-radius: 5px;
         caret-color: #000000;
     }
@@ -100,7 +100,7 @@ def run_custom_code():
     }
     /*card*/
     div#authcardholder{
-        background-color: #FFFFFF; 
+        background-color: #1D1C21; 
         margin-left: auto;
         margin-right: auto;
         padding: 10px 30px 0 30px;
