@@ -100,7 +100,7 @@ def run_custom_code():
     }
     /*card*/
     div#authcardholder{
-        background-color: #000000; 
+        background-color: #FFFFFF; 
         margin-left: auto;
         margin-right: auto;
         padding: 10px 30px 0 30px;
