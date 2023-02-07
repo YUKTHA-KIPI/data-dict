@@ -88,12 +88,12 @@ def run_custom_code():
         background-color: #FFFFFF;
         height: 45px;
         width: 100%;
-        color:#000000;
+        color:#ece5e5;
         border-radius: 5px;
         visibility: visible;
     }
     button#signinbutton:hover {
-        background-color: #000000;
+        background-color: #ece5e5;
         color:#FFFFFF;
         border: 1px solid #FFFFFF;
         border-radius: 5px;    
