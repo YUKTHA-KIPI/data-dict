@@ -77,7 +77,7 @@ def get_home_content():
 
         with logo:
             ''
-            logoimage = Image.open(r'FC_DD\assets\brand\flex.png')
+            logoimage = Image.open(r'assets\brand\flex.png')
             st.image(logoimage)
 
         with menu:
