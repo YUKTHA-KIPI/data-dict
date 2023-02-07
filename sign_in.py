@@ -88,7 +88,7 @@ def run_custom_code():
         background-color: #ecabdb;
         height: 45px;
         width: 100%;
-        color:#ecabdb;
+        color:#FFFFFF;
         border-radius: 5px;
         visibility: visible;
     }
