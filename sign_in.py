@@ -85,10 +85,10 @@ def run_custom_code():
         border-radius: 5px;
     }
     button#signinbutton{
-        background-color: #ece5e5;
+        background-color: #FFFFFF;
         height: 45px;
         width: 100%;
-        color:#FFFFFF;
+        color:#990033;
         border-radius: 5px;
         visibility: visible;
     }
