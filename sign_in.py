@@ -85,7 +85,7 @@ def run_custom_code():
         border-radius: 5px;
     }
     button#signinbutton{
-        background-color: #B3D943;
+        background-color: #FFFFFF;
         height: 45px;
         width: 100%;
         color:#000000;
@@ -149,7 +149,7 @@ def run_custom_code():
 
             switch($(this).attr('aria-label')) {
                 case 'username':
-                    $(this).attr({"id": "usernameinput", "placeholder": "someone@kipi.bi"});
+                    $(this).attr({"id": "usernameinput", "placeholder": "Snowflake Username"});
                     //console.log('username');
                     break;
                 //case 'account_identifier':
