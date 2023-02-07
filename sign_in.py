@@ -273,7 +273,7 @@ def sign_in_page():
         logo, empty1, empty2, empty3 = st.columns([4, 1, 1, 4], gap="large")
 
         with logo:
-            logoimage = Image.open(r'FC_DD\assets\brand\flex.png')
+            logoimage = Image.open(r'assets\brand\flex.png')
             st.image(logoimage)
 
 
