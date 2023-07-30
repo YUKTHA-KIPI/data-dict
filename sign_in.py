@@ -193,7 +193,7 @@ def signin_callback():
             account="wy30041.ap-southeast-3.aws",
             role="sysadmin",
             # account = "atjpgbj-qp69829",
-            warehouse = 'COMPUTE_WH',
+            warehouse = 'COMPUTE_WH'
             # database="ACCELERATOR_DB",
             # schema="RBAC"
             )        
