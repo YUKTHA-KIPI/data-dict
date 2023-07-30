@@ -34,7 +34,7 @@ def run_custom_code():
     }
     /* input code */
     input:focus {
-        border: 1px solid #B3D943;
+        border: 1px solid #b32843;
     }
     input#usernameinput::placeholder {
         color: #757575;
@@ -71,7 +71,7 @@ def run_custom_code():
     }
     /* buttons code */
     button#learnmorebutton{
-        background-color: #B3D943;
+        background-color: #b32843;
         height: 45px;
         color:#000000;
         border: none;
@@ -80,7 +80,7 @@ def run_custom_code():
     }
     button#learnmorebutton:hover {
         background-color: #000000;
-        color:#FFFFFF;
+        color: #b32843;
         border: 1px solid #FFFFFF;
         border-radius: 5px;
     }
@@ -94,7 +94,7 @@ def run_custom_code():
     }
     button#signinbutton:hover {
         background-color: #ece5e5;
-        color:#FFFFFF;
+        color:#b32843;
         border: 1px solid #FFFFFF;
         border-radius: 5px;    
     }
@@ -192,23 +192,10 @@ def signin_callback():
             password=st.session_state['password'],
             account="wy30041.ap-southeast-3.aws",
             role="sysadmin",
-            # account = "atjpgbj-qp69829",
             warehouse = 'COMPUTE_WH'
-            # database="ACCELERATOR_DB",
-            # schema="RBAC"
             )        
             st.session_state['active_session'] = con
 
-            #connection_parameters = {
-            #    "account": "flexcare",
-             #   "user": st.session_state['username'],
-              #  "password": st.session_state['password'],
-              #  "database":"ACCELERATOR_DB",
-               # "schema": "RBAC"
-               # }
-
-        #st.session_state['active_session'] = Session.builder.configs(connection_parameters).create()  
-        
     except DatabaseError:
         st.session_state['login_clicked'] = True
         st.session_state['active_session'] = None
@@ -238,8 +225,7 @@ def get_sign_in_form():
     #<p style="font-size:16px;">Account identifier</p>
 
     #''', unsafe_allow_html=True)
-    #s5 = st.text_input('account_identifier', label_visibility = 'collapsed')
-#'account_name' in st.session_state and
+    
     if 'username' in st.session_state and 'password' in st.session_state and ('login_clicked' not in st.session_state or st.session_state['login_clicked']):  
         s8_text = "Credential not valid, Please check username or password "
     else:
@@ -258,7 +244,6 @@ def get_sign_in_form():
     s9 = st.button('Sign in', on_click=signin_callback)
 
     st.session_state['username'] = s3
-    #st.session_state['account_name'] = s5
     st.session_state['password'] = s7
 
     s10 = ''
@@ -283,7 +268,7 @@ def sign_in_page():
 
 #body content
     with st.container():
-        div1, div2 = st.columns(2, gap="medium")
+        div1, div2 = st.columns([1,2], gap="medium")
 
         with div1:
             with st.container():
