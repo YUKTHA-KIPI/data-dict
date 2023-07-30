@@ -99,7 +99,7 @@ def get_home_content():
     
     if "active_session" in st.session_state:
        
-        data_df = run_query('''SELECT * FROM FIVETRAN_DATABASE.PUBLIC.TABLE_METADATA ;''')
+        data_df = run_query('''SELECT * FROM DATA_DICT.PUBLIC.TABLE_METADATA ;''')
         df = pd.DataFrame(data_df, columns = ['DATABASE_NAME', 'TABLE_SCHEMA', 'TABLE_NAME', 'DESCRIPTION']) 
 
         with r:
@@ -148,10 +148,10 @@ def get_home_content():
                 st.write("Query call for updating table to :",updated_help,": from :",help_data)
                 
                 # st.write(f'''UPDATE FIVETRAN_DATABASE.PUBLIC.TABLE_METADATA SET DESCRIPTION='{updated_help}' WHERE TABLE_NAME='{table}';''')
-                run_query(f'''UPDATE FIVETRAN_DATABASE.PUBLIC.TABLE_METADATA SET DESCRIPTION='{updated_help}' WHERE TABLE_NAME='{table}';''')
+                run_query(f'''UPDATE DATA_DICT.PUBLIC.TABLE_METADATA SET DESCRIPTION='{updated_help}' WHERE TABLE_NAME='{table}';''')
                 st.experimental_rerun()
             if sel_row:    
-                col_list = run_query(f"SELECT COLUMN_NAME,DATA_TYPE,DESCRIPTION FROM FIVETRAN_DATABASE.PUBLIC.COLUMN_METADATA WHERE TABLE_NAME='{table}';")
+                col_list = run_query(f"SELECT COLUMN_NAME,DATA_TYPE,DESCRIPTION FROM DATA_DICT.PUBLIC.COLUMN_METADATA WHERE TABLE_NAME='{table}';")
                 st.subheader(f"Columns in table: {table}")
                 col_df =  pd.DataFrame(col_list, columns = ['COLUMN NAME', 'DATA TYPE', 'DESCRIPTION']) 
                 grid_options = {
@@ -190,8 +190,8 @@ def get_home_content():
                             updated_desc = comparison_df['DESCRIPTION'].iloc[0]
                             selected_col_name = comparison_df['COLUMN NAME'].iloc[0]
                             # st.write("Query call for updating table to :",updated_desc)            
-                            st.write(f'''UPDATE FIVETRAN_DATABASE.PUBLIC.COLUMN_METADATA SET DESCRIPTION='{updated_desc}' WHERE COLUMN_NAME='{selected_col_name}' AND TABLE_NAME='{table}';''')
-                            run_query(f'''UPDATE FIVETRAN_DATABASE.PUBLIC.COLUMN_METADATA SET DESCRIPTION='{updated_desc}' WHERE COLUMN_NAME='{selected_col_name}' AND TABLE_NAME='{table}';''')
+                            st.write(f'''UPDATE DATA_DICT.PUBLIC.COLUMN_METADATA SET DESCRIPTION='{updated_desc}' WHERE COLUMN_NAME='{selected_col_name}' AND TABLE_NAME='{table}';''')
+                            run_query(f'''UPDATE DATA_DICT.PUBLIC.COLUMN_METADATA SET DESCRIPTION='{updated_desc}' WHERE COLUMN_NAME='{selected_col_name}' AND TABLE_NAME='{table}';''')
                             st.experimental_rerun()
 
                         # elif len(comparison_df['DESCRIPTION'] == 1):
@@ -201,7 +201,7 @@ def get_home_content():
                             # st.experimental_rerun()
 
                 st.subheader(f"Joins in table: {table}")
-                joins = run_query(f"SELECT F.FKCOLUMN_NAME AS FKEY_COLUMN_NAME,F.PKTABLE_NAME AS REFERENCE_TABLE, F.PKCOLUMN_NAME AS REFERENCE_COLUMN, T.SCHEMA_NAME AS REFERENCE_TABLE_SCHEMA FROM FIVETRAN_DATABASE.PUBLIC.OA_FKEYS F JOIN FIVETRAN_DATABASE.PUBLIC.TABLE_METADATA T ON T.TABLE_NAME=F.PKTABLE_NAME WHERE F.FKTABLE_NAME='{table}';")
+                joins = run_query(f"SELECT F.FKCOLUMN_NAME AS FKEY_COLUMN_NAME,F.PKTABLE_NAME AS REFERENCE_TABLE, F.PKCOLUMN_NAME AS REFERENCE_COLUMN, T.SCHEMA_NAME AS REFERENCE_TABLE_SCHEMA FROM DATA_DICT.PUBLIC.FKEYS F JOIN DATA_DICT.PUBLIC.TABLE_METADATA T ON T.TABLE_NAME=F.PKTABLE_NAME WHERE F.FKTABLE_NAME='{table}';")
                 join_df = pd.DataFrame(joins, columns = ['FKEY_COLUMN_NAME', 'REFERENCE_TABLE', 'REFERENCE_COLUMN', 'REFERENCE_TABLE_SCHEMA']) 
                 AgGrid(join_df, columns_auto_size_mode=ColumnsAutoSizeMode.FIT_ALL_COLUMNS_TO_VIEW)
     return 
