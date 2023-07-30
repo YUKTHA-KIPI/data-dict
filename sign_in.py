@@ -190,7 +190,7 @@ def signin_callback():
             con = snowflake.connector.connect(
             user=st.session_state['username'],
             password=st.session_state['password'],
-            account="HVDCQPQ-FN85174",
+            account="wy30041.ap-southeast-3.aws",
             role="sysadmin",
             # account = "atjpgbj-qp69829",
             warehouse = 'COMPUTE_WH',
